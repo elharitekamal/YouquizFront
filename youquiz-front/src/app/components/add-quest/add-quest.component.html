@@ -1,0 +1,99 @@
+<div>
+    <div class="  grid bg-black ">
+      <div class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 ">
+        <div  class="w-1 sm:w-1/2 xl:w-3/5 bg-black h-[700px] hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden  text-white bg-no-repeat bg-cover " style="background-image: url(assets/image/youquiz.png);">
+          <div class="w-full  lg:max-w-2xl md:max-w-md z-10 items-center text-center ">
+            <div class=" font-bold leading-tight mb-6 mx-auto w-full content-center items-center ">
+          
+            </div>
+          </div>
+        </div>
+
+        <div class="md:flex md:items-center md:justify-left w-full sm:w-auto md:h-full xl:w-1/2 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none " >
+            <div class="max-w-xl w-full space-y-12">
+              <div class="lg:text-left text-center">
+          
+                <div class="flex items-center justify-center mt-10 ">
+                  <div class="bg-black flex flex-col w-80 border border-orange-400 rounded-lg px-8 py-10">
+                  
+                 <form class="flex flex-col space-y-8 mt-10" (ngSubmit)="onSubmit()">
+  <label class="font-bold text-lg text-white">Numbre of response</label>
+  <input type="text" placeholder="" class="border rounded-lg py-3 px-3 mt-4 bg-black border-orange-400 placeholder-white-500 text-white" [(ngModel)]="numberOfResponses" name="numberOfResponses" >
+
+  <label class="font-bold text-lg text-white">Nempre of Correct Response</label>
+  <input type="text" placeholder="Level Description" class="border rounded-lg py-3 px-3 mt-4 bg-black border-orange-400 placeholder-white-500 text-white" [(ngModel)]="numberOfCorrectResponses"  name="numberOfCorrectResponses">
+
+  <label class="font-bold text-lg text-white">Text Of Question</label>
+  <input type="text" placeholder="Write the question" class="border rounded-lg py-3 px-3 mt-4 bg-black border-orange-400 placeholder-white-500 text-white" [(ngModel)]="questionText" name="questionText">
+
+  <button (click)="toggleDropdownType()" class="border rounded-lg border-orange-400 text-white bg-white-700  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+  Type Of Question
+
+</button>
+<button (click)="toggleDropdownSubject()" class="border rounded-lg border-orange-400 text-white bg-white-700  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+  Subject
+
+</button>
+
+<button (click)="toggleDropdownLevel()" class="border rounded-lg border-orange-400 text-white bg-white-700  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+  Level
+
+</button>
+
+  <button type="submit" class="border border-orange-400 bg-black text-white rounded-lg py-3 font-semibold">Create Level</button>
+</form>
+
+
+                </div>
+                </div>
+            
+            </div>
+              
+            </div>
+
+
+
+
+
+<!-- type--of--question -->
+
+    <div *ngIf="isDropdownTypeOpen" class="z-10 bg-dark divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 border rounded-lg border-orange-400">
+  <ul class="py-2 text-sm text-white dark:text-white" aria-labelledby="dropdownDefaultButton">
+    <li>
+      <a (click)="selectType('TrueFalse')"   class="block px-4 py-2 hover:bg-orange-600 dark:hover:bg-gray-600 dark:hover:text-dark">True or Fulse</a>
+    </li>
+    <li>
+      <a (click)="selectType('MulipleAnswer')"   class="block px-4 py-2 hover:bg-orange-600 dark:hover:bg-gray-600 dark:hover:text-dark">Multiple</a>
+    </li>
+    <li>
+      <a (click)="selectType('OneAnswer')"  class="block px-4 py-2 hover:bg-orange-600 dark:hover:bg-gray-600 dark:hover:text-dark">One Answer</a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+<!-- subject--of--question -->
+
+ <div *ngIf="isDropdownSubjectOpen" class="z-10 bg-dark divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 border rounded-lg border-orange-400">
+  <ul  class="py-2 text-sm text-white dark:text-white" aria-labelledby="dropdownDefaultButton">
+    <li *ngFor="let subject of subjectsRes" >
+      <a *ngIf="subject.id != null" (click)="selectSubject(subject.id)"  class="block px-4 py-2 hover:bg-orange-600 dark:hover:bg-gray-600 dark:hover:text-dark">{{subject.title}}</a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<!-- level--of--question -->
+
+ <div *ngIf="isDropdownLevelOpen" class="z-10 bg-dark divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 border rounded-lg border-orange-400">
+  <ul class="py-2 text-sm text-white dark:text-white" aria-labelledby="dropdownDefaultButton">
+    <li *ngFor="let level of levels">
+      <a *ngIf="level.id != null" (click)="selectLevel(level.id)"  class="block px-4 py-2 hover:bg-orange-600 dark:hover:bg-gray-600 dark:hover:text-dark">{{level.description}}</a>
+    </li>
+  </ul>
+</div>

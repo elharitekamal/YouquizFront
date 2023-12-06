@@ -1,0 +1,37 @@
+<!-- component -->
+<div class="bg-black min-h-screen flex items-center justify-center">
+  <div style="margin-top: 110px;" class=" bg-gray-800 flex-1 flex flex-col space-y-5 lg:space-y-0 lg:flex-row lg:space-x-10 max-w-6xl sm:p-6 sm:my-2 sm:mx-4 sm:rounded-2xl">
+    
+    <!-- Content -->
+    <div class="flex-1 px-5 sm:px-0">
+      
+      <div class="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="border rounded-lg border-fuchsia-600  group bg-gray-900/30 py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/40 hover:smooth-hover">
+          <a class="bg-gray-900/70 text-white/50 group-hover:text-white group-hover:smooth-hover flex w-20 h-20 rounded-full items-center justify-center" routerLink="add-subject">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+          </a>
+          <a class="text-white/50 group-hover:text-white group-hover:smooth-hover text-center">Create Subject</a>
+        </div>
+        <div *ngFor="let subject of subjectsRes" class="border rounded-lg border-fuchsia-600  group bg-gray-900 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
+          <img class="w-20 h-20 object-cover object-center rounded-full" src="https://img.freepik.com/vecteurs-libre/ordinateur-portable-icone-isometrique-code-programme-developpement-logiciels-applications-programmation-neon-sombre_39422-971.jpg?w=826&t=st=1701810451~exp=1701811051~hmac=0344c57410e53272578344ed28b483b8c4533c3cd181cccf9a6b8f26264050a0" alt="cinema" />
+          <h4 class="text-white text-2xl font-bold capitalize text-center">{{subject.title}}</h4>
+           <span *ngIf="subject.parent && subject.parent.title !== subject.title">
+  <p class="text-white/50">Parent: {{subject.parent.title}}</p>
+</span>
+
+
+            <span>
+  
+             <a *ngIf="subject.id !== undefined" (click)="deleteSubject(subject.id)" >
+        <i class="fa-solid fa-trash" style="color: #db0000; "></i>
+        </a>
+        </span>
+             <span><a routerLink="update-subject"><i class="fa-solid fa-pen-to-square" style="color: #6bdd9c;"></i></a></span>
+           </div>
+        
+          </div>
+           </div>
+                </div>
+       </div>
