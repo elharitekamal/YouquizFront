@@ -1,0 +1,33 @@
+<!-- This is an example component -->
+<div class='flex min-h-screen py-3 items-center justify-center min-h-screen from-black via-black to-orange-700 bg-gradient-to-br'>
+    <div class="flex items-center justify-center min-h-[450px]">
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <table class="w-full text-sm  text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="py-3 px-6">Trainer</th>
+                    <th scope="col" class="py-3 px-6">Instructions</th>
+                    <th scope="col" class="py-3 px-6">Remarks</th>
+                    <th scope="col" class="py-3 px-6">Score</th>
+                    <th scope="col" class="py-3 px-6">Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let tmp of tests" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <td class="py-4 px-6">{{tmp.trainer.lastName}}</td>
+                    <td class="py-4 px-6">{{tmp.remarks}}</td>
+                    <td class="py-4 px-6">{{tmp.instructions}}</td>
+                    <td class="py-4 px-6">{{tmp.successScore}}</td>
+                    <td class="py-4 px-6"><i (click)="gotToTest(tmp.id)" class="fa-solid text-green-500 text-lg cursor-pointer fa-play"></i></td>
+
+                </tr>
+                </tbody>
+            </table>
+            </div>
+    </div>
+    
+</div>
+</div>
+

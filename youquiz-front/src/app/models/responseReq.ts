@@ -1,5 +1,5 @@
 export interface QuestionReq{
-    id?: string,
+    id?: number,
     numberOfCorrectResponses ?: number | null;
     numberOfResponses ?: number | null;
     questionText ?: string | null;

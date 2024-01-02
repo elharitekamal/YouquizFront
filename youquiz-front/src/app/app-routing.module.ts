@@ -12,9 +12,11 @@ import { AddResponseComponent } from './components/add-response/add-response.com
 import { AssignementComponent } from './components/assignement/assignement.component';
 import { AddAssignementComponent } from './components/add-assignement/add-assignement.component';
 import { QuizComponent } from './components/quiz/quiz.component';
+import { AllquizesComponent } from './components/allquizes/allquizes.component';
 
 const routes: Routes = [
   {path : 'level-component', component: LevelComponent},
+  {path : 'allquizes', component: AllquizesComponent},
   {path : 'response-component', component: ResponseComponent},
   {path : 'subject-component', component: SubjectComponent},
   {path : 'assignement-component', component: AssignementComponent},
@@ -22,7 +24,7 @@ const routes: Routes = [
   {path : 'level-component/add-level', component: AddLevelComponent},
   {path : 'level-component/update-level', component: UpdateLevelComponent},
   {path : 'question-component/add-question', component: AddQuestionComponent},
-  {path : 'quiz-component', component: QuizComponent},
+  {path : 'quiz-component/:code', component: QuizComponent},
   {path : 'assignement-component/add-assignement', component: AddAssignementComponent},
   {path : 'response-component/add-response', component: AddResponseComponent},
   {path : 'question-component', component: QuestionComponent}

@@ -18,6 +18,7 @@ import { AddResponseComponent } from './components/add-response/add-response.com
 import { AssignementComponent } from './components/assignement/assignement.component';
 import { AddAssignementComponent } from './components/add-assignement/add-assignement.component';
 import { QuizComponent } from './components/quiz/quiz.component';
+import { AllquizesComponent } from './components/allquizes/allquizes.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { QuizComponent } from './components/quiz/quiz.component';
     AssignementComponent,
     AddAssignementComponent,
     QuizComponent,
+    AllquizesComponent,
   ],
   imports: [
     BrowserModule,

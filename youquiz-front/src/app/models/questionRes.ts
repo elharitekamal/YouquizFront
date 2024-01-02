@@ -3,7 +3,7 @@ import { SubjectRes } from './subjectRes';
 
 
 export interface QuestionRes {
-    id?: number,
+    id?: number ,
     numberOfCorrectResponses ?: number | null;
     numberOfResponses ?: number | null;
     questionText ?: string | null;

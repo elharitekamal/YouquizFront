@@ -26,4 +26,7 @@ export class AssignementService {
   public deleteAssignement(id: number): Observable<AssignementRes> {
   return this.http.delete<AssignementRes>(`${this.apiServerUrl}/${id}`);
 }
+
+
+
 }
